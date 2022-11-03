@@ -1,7 +1,7 @@
 FROM golang:1.19.2-buster
 
 RUN apt-get update -qq && \
-    apt-get install -y sudo build-essential bash && \
+    apt-get install -y sudo build-essential protobuf-compiler bash && \
     apt-get clean
 
 # install go tools
@@ -25,6 +25,10 @@ RUN go install golang.org/x/tools/gopls@latest  && \
     go install github.com/posener/complete/v2/gocomplete@latest  && \
     curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.50.0
 
+
+# for grpc
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest  && \
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 ARG host_uid
 ARG host_gid

@@ -19,5 +19,5 @@
   "remoteEnv": {
     "GO111MODULE": "on"
   },
-  "postCreateCommand": "echo alias go-imports=\\'goimports -l -w .\\' >> ~/.bashrc;COMP_INSTALL=1 COMP_YES=1 /go/bin/gocomplete"
+  "postCreateCommand": "export PATH=\\'$PATH:$(go env GOPATH)/bin\\';echo alias go-imports=\\'goimports -l -w .\\' >> ~/.bashrc;COMP_INSTALL=1 COMP_YES=1 /go/bin/gocomplete"
 }
