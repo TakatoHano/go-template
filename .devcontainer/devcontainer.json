@@ -1,0 +1,22 @@
+{
+  "name": "Go",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "go",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "golang.Go",
+    "766b.go-outliner",
+    "oderwat.indent-rainbow",
+    "aaron-bond.better-comments",
+    "dzhavat.bracket-pair-toggler"
+  ],
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "go.lintTool": "golangci-lint",
+    "go.formatTool": "goimports"
+  },
+  "remoteEnv": {
+    "GO111MODULE": "on"
+  },
+  "postCreateCommand": "echo alias go-imports=\\'goimports -l -w .\\' >> ~/.bashrc;COMP_INSTALL=1 COMP_YES=1 /go/bin/gocomplete"
+}
