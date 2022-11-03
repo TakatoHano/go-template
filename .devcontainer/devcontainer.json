@@ -2,6 +2,7 @@
   "name": "Go",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "go",
+  "initializeCommand": "bash init.sh",
   "workspaceFolder": "/workspace",
   "extensions": [
     "golang.Go",
